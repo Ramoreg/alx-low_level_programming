@@ -1,41 +1,85 @@
-#include "notrebloh.h"
-#include <stdio.h>
+#include "main.h"
+		
 #include <stdlib.h>
-
+		
 /**
- * **alloc_grid - function to allocate memory to grid
- * @width: int type
- * @height: int type
- * Return: grid of 0s
+		
+ * alloc_grid - nested loop to make grid
+		
+ * @width: width input
+		
+ * @height: height input
+		
+ * Return: pointer to 2 dim. array
+		
  */
+		
 int **alloc_grid(int width, int height)
+		
 {
+		
+	int **mee;
+		
 	int x, y;
-	int **ptr;
+		
 
+		
 	if (width <= 0 || height <= 0)
-	{
-		return  (NULL);
-	}
-	ptr = malloc(height * sizeof(int *));
-	if (ptr == NULL)
-	{
+		
 		return (NULL);
-	}
+		
+
+		
+	mee = malloc(sizeof(int *) * height);
+		
+
+		
+	if (mee == NULL)
+		
+		return (NULL);
+		
+
+		
 	for (x = 0; x < height; x++)
+		
 	{
-		ptr[x] = malloc(width * sizeof(int));
-		if (ptr[x] == NULL)
+		
+		mee[x] = malloc(sizeof(int) * width);
+		
+
+		
+		if (mee[x] == NULL)
+		
 		{
-			for (y = 0; y < x;  y++)
-				free(ptr[y]);
-			free(ptr);
+		
+			for (; x >= 0; x--)
+		
+				free(mee[x]);
+		
+
+		
+			free(mee);
+		
 			return (NULL);
+		
 		}
-		for (y = 0; y < width; y++)
-		{
-			ptr[x][y] = 0;
-		}
+		
 	}
-	return (ptr);
+		
+
+		
+	for (x = 0; x < height; x++)
+		
+	{
+		
+		for (y = 0; y < width; y++)
+		
+			mee[x][y] = 0;
+		
+	}
+		
+
+		
+	return (mee);
+		
 }
