@@ -31,6 +31,9 @@ Write a function that inserts a new node at a given position.
 10. Delete at index
 mandatory
 Write a function that deletes the node at index index of a listint_t linked list.
+11. Reverse list
+#advanced
+Write a function that reverses a listint_t linked list.
 12. Print (safe version)
 #advanced
 Write a function that prints a listint_t linked list.
