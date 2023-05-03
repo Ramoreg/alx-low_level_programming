@@ -1,13 +1,15 @@
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
 #include "lists.h"
 
 /**
- * free_listint2 - to free a linked list.
- * @head: pointer to the listint_t list to be freed.
-*/
+
+ * free_listint2 - frees a linked list
+
+ * @head: pointer to the listint_t list to be freed
+
+ */
+
 void free_listint2(listint_t **head)
+
 {
 
         listint_t *temp;
@@ -21,10 +23,13 @@ void free_listint2(listint_t **head)
         {
 
                 temp = (*head)->next;
+
                 free(*head);
+
                 *head = temp;
 
         }
 
         *head = NULL;
+
 }
